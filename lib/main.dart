@@ -1,3 +1,4 @@
+import 'package:challenge_week_one/secondScreeen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter 21 Day Series Week 1'),
     );
   }
 }
@@ -34,25 +35,47 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Container(
-        width: 300,
-        height: 300,
-        padding: EdgeInsets.all(20),
-        margin: EdgeInsets.all(20),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: Colors.blue,
-          gradient:
-              LinearGradient(colors: [Colors.orange, Colors.deepOrangeAccent]),
-          boxShadow: [
-            BoxShadow(
-                offset: Offset(0, 20),
-                spreadRadius: 10,
-                color: Colors.grey,
-                blurRadius: 20),
-          ],
-        ),
-        child: Text("Let's start learning"),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Text(
+              'A Widget, can be enything like image , container etc',
+              style: TextStyle(fontSize: 24),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(50.0),
+            child: Hero(
+              tag: 'tag',
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  width: 300,
+                  height: 300,
+                  padding: EdgeInsets.all(20),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    gradient:
+                        LinearGradient(colors: [Colors.blue, Colors.indigo]),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 50),
+          MaterialButton(
+            child: Text('Second Screen'),
+            color: Colors.blue,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SecondScreen()),
+              );
+            },
+          ),
+        ],
       ),
     );
   }
