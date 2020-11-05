@@ -1,4 +1,3 @@
-import 'package:challenge_week_one/secondScreeen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -35,47 +34,25 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Text(
-              'A Widget, can be enything like image , container etc',
-              style: TextStyle(fontSize: 24),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(50.0),
-            child: Hero(
-              tag: 'tag',
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: 300,
-                  height: 300,
-                  padding: EdgeInsets.all(20),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    gradient:
-                        LinearGradient(colors: [Colors.blue, Colors.indigo]),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          SizedBox(height: 50),
-          MaterialButton(
-            child: Text('Second Screen'),
-            color: Colors.blue,
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SecondScreen()),
-              );
-            },
-          ),
-        ],
+      body: Center(
+        child: Text(
+          'JUST A BORING TEXT',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontSize: 40,
+              height: 2,
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w900,
+              letterSpacing: 2,
+              color: Colors.indigo,
+              backgroundColor: Colors.deepOrangeAccent,
+              shadows: [
+                Shadow(
+                    color: Colors.indigo,
+                    blurRadius: 20,
+                    offset: Offset(0, 30)),
+              ]),
+        ),
       ),
     );
   }
