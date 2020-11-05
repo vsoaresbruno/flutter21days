@@ -32,26 +32,34 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Text(
-          'JUST A BORING TEXT',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              fontSize: 40,
-              height: 2,
-              fontFamily: 'Montserrat',
-              fontWeight: FontWeight.w900,
-              letterSpacing: 2,
-              color: Colors.indigo,
-              backgroundColor: Colors.deepOrangeAccent,
-              shadows: [
-                Shadow(
-                    color: Colors.indigo,
-                    blurRadius: 20,
-                    offset: Offset(0, 30)),
-              ]),
+      body: Container(
+        child: ListView(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Image from assets',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            Image.asset('images/detective-pikachu.jpg'),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Image from network',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            Image.network(
+              'https://images.pexels.com/photos/4245856/pexels-photo-4245856.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+              loadingBuilder: (context, child, progress) {
+                return progress == null ? child : LinearProgressIndicator();
+              },
+            ),
+          ],
         ),
       ),
     );
